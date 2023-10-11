@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:voltage_treasure_hunt/components/constants/colors.dart';
+import 'package:voltage_treasure_hunt/presentation/authentication_screens/sign_in.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,6 +13,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  void navigateToSignIn()async{
+    await Future.delayed(const Duration(seconds: 3), (){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> const SignIn()));
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
