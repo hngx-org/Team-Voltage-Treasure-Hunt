@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:voltage_treasure_hunt/components/widgets/customButton.dart';
 import 'package:voltage_treasure_hunt/components/widgets/customTextField.dart';
 import 'package:voltage_treasure_hunt/components/widgets/text_styles.dart';
+import 'package:voltage_treasure_hunt/presentation/home_screen/home_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -41,7 +42,7 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
             ),
-            child: Center(
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -100,7 +101,10 @@ class _SignInState extends State<SignIn> {
                     padding: const EdgeInsets.fromLTRB(30, 210, 170, 0),
                     child: CustomButton(
                       loading: isLoading,
-                      buttonText: 'Sign Up',
+                      buttonText: 'Sign In',
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                      },
                     ),
                   ),
                   SizedBox(

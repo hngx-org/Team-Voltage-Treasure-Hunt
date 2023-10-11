@@ -57,18 +57,13 @@ class CustomTextField extends StatelessWidget {
               )),
           const SizedBox(height: 5),
           Container(
-            // height: 50.h,
-            // decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(15.r),
-            //     color: AppColor.backgroundColor3,
-            //     border: Border.all(
-            //         color: AppColor.black.withOpacity(0.7)),
-            //     boxShadow: [
-            //       BoxShadow(
-            //           color: AppColor.primaryColor.withOpacity(0.8),
-            //           blurRadius: 1,
-            //           offset: const Offset(1, 2))
-            //     ]),
+            height: 50.h,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.r),
+                // color: AppColor.backgroundColor3,
+                border: Border.all(
+                    color: AppColor.textColor.withOpacity(0.7)),
+               ),
             child: TextFormField(
               cursorColor: Color(0xff82591B),
               maxLines: obscureText ? 1 : 10,
