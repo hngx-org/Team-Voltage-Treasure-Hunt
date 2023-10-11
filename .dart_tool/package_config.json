@@ -110,6 +110,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_dotenv",
+      "rootUri": "file:///Users/marshal/.pub-cache/hosted/pub.dev/flutter_dotenv-5.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///Users/olankan/.pub-cache/hosted/pub.dev/flutter_lints-2.0.3",
       "packageUri": "lib/",
@@ -234,6 +240,24 @@
       "rootUri": "file:///Users/olankan/.pub-cache/hosted/pub.dev/lottie-2.6.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "location",
+      "rootUri": "file:///Users/marshal/.pub-cache/hosted/pub.dev/location-5.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "location_platform_interface",
+      "rootUri": "file:///Users/marshal/.pub-cache/hosted/pub.dev/location_platform_interface-3.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "location_web",
+      "rootUri": "file:///Users/marshal/.pub-cache/hosted/pub.dev/location_web-4.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "matcher",
