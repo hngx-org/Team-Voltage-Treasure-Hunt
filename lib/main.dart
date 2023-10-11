@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voltage_treasure_hunt/components/themes/app_themes.dart';
-import 'package:voltage_treasure_hunt/presentation/onboarding_screens/splash_screen.dart';
+import 'package:device_preview/device_preview.dart';
+// import 'package:voltage_treasure_hunt/animation_samples.dart';
+import 'package:voltage_treasure_hunt/presentation/authentication_screens/sign_in.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(
+    enabled: false,
+    builder: (BuildContext context) => const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,11 +17,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: appTheme,
-      home: const SplashScreen(),
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      builder: (_, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: appTheme,
+          home: const SignIn(),
+        );
+      },
     );
   }
 }
-
