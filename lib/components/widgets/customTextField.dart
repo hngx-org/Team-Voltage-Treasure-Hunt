@@ -65,7 +65,7 @@ class CustomTextField extends StatelessWidget {
                     color: AppColor.textColor.withOpacity(0.7)),
                ),
             child: TextFormField(
-              cursorColor: Color(0xff82591B),
+              cursorColor: const Color(0xff82591B),
               maxLines: obscureText ? 1 : 10,
               minLines: 1,
               obscuringCharacter: '*',
