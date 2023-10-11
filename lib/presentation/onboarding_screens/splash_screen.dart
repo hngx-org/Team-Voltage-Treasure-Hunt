@@ -19,6 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.push(context, MaterialPageRoute(builder: (context)=> const SignIn()));
     });
   }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    navigateToSignIn();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
