@@ -25,10 +25,10 @@ class Dashboard extends StatelessWidget {
               width: 320,
               child: Row(
                 children: [
-                  // CircleAvatar(
-                  //   backgroundImage: AssetImage('assets/images/avatar.jpg'),
-                  //   radius: 50,
-                  // ),
+                  CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/avatar.jpg'),
+                    radius: 50,
+                  ),
                   Column(
                     children: [
                       Text('points'),
