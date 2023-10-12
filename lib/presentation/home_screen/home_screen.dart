@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const Dashboard(),
     const MapPage(),
-    const SettingsScreen()
+    SettingsScreen()
   ];
 
   int _currentIndex = 0;

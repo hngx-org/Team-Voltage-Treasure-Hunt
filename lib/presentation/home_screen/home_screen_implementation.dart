@@ -39,6 +39,10 @@ class Dashboard extends StatelessWidget {
                       Container(
                         height: 10,
                         width: 140,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                     ],
                   ),
