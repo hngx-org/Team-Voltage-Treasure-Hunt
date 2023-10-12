@@ -1,13 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Color(0xff82591B),
-      body: Center(child: Text('HOME SCREEN'),),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(
+                  'assets/images/IMG_4871.JPG',
+                ),
+              ),
+            ),
+            child: Center(
+              child: Text(
+                'Home',
+                style: TextStyle(
+                  color: Color(0xff5FCFA3),
+                  fontFamily: 'MooLahLah',
+                  fontWeight: FontWeight.w800,
+                  fontSize: 35.sp,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            child: IgnorePointer(
+              ignoring: true,
+              child: Lottie.asset(
+                'assets/animations/animation_lnlie7v9.json',
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 100,
+            child: IgnorePointer(
+              ignoring: true,
+              child: Lottie.asset(
+                'assets/animations/animation_lnlie7v9.json',
+                // fit: BoxFit.cover
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

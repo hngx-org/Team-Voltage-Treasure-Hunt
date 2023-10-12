@@ -31,6 +31,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffDDC599),
       body: Stack(
         children: [
           Container(
@@ -42,105 +43,113 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 170,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
-                    child: Center(
-                      child: Text(
-                        "Sign in",
-                        style: CustomTextStyles.headerTextStyle,
-                      ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 170,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 6.0),
+                  child: Center(
+                    child: Text(
+                      "Sign in",
+                      style: CustomTextStyles.headerTextStyle,
                     ),
                   ),
-                  const SizedBox(
-                    height: 55,
+                ),
+                const SizedBox(
+                  height: 55,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: CustomTextField(
+                    hintText: "someone@example.com",
+                    inputType: TextInputType.emailAddress,
+                    controller: emailController,
+                    label: 'Email Address',
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: CustomTextField(
-                      hintText: "someone@example.com",
-                      inputType: TextInputType.emailAddress,
-                      controller: emailController,
-                      label: 'Email Address',
-                    ),
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: CustomTextField(
+                    obscureText: _obscurePassword,
+                    hintText: "Abc123#",
+                    controller: passwordController,
+                    icon: _obscurePassword
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    iconAction: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                    label: 'Password',
+                    onChanged: (value) {},
                   ),
-                  SizedBox(
-                    height: 10.h,
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 210, 170, 0),
+                  child: CustomButton(
+                    loading: isLoading,
+                    buttonText: 'Sign In',
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: CustomTextField(
-                      obscureText: _obscurePassword,
-                      hintText: "Abc123#",
-                      controller: passwordController,
-                      icon: _obscurePassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      iconAction: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                      label: 'Password',
-                      onChanged: (value) {},
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 210, 170, 0),
-                    child: CustomButton(
-                      loading: isLoading,
-                      buttonText: 'Sign In',
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 102.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Already have an account? Sign in',
-                          style: TextStyle(
-                            color: Color(0xff996C28),
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Onest',
-                          ),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 102.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Already have an account? Sign in',
+                        style: TextStyle(
+                          color: Color(0xff996C28),
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Onest',
                         ),
-                        Icon(
-                          Icons.chevron_right_rounded,
-                          size: 30,
-                          color: Color(0xFF70552D),
-                        )
-                      ],
-                    ),
+                      ),
+                      Icon(
+                        Icons.chevron_right_rounded,
+                        size: 30,
+                        color: Color(0xFF70552D),
+                      )
+                    ],
                   ),
-                ],
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            child: IgnorePointer(
+              ignoring: true,
+              child: Lottie.asset(
+                'assets/animations/animation_lnlie7v9.json',
               ),
             ),
           ),
           Positioned(
-            child: Lottie.asset(
-              'assets/animations/animation_lnlie7v9.json',
-              
+            bottom: 100,
+            child: IgnorePointer(
+              ignoring: true,
+              child: Lottie.asset(
+                'assets/animations/animation_lnlie7v9.json',
+                // fit: BoxFit.cover
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

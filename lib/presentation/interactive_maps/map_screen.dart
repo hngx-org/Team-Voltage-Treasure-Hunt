@@ -12,7 +12,7 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   final Completer<GoogleMapController> _mapController =
-  Completer<GoogleMapController>();
+      Completer<GoogleMapController>();
   final Location _locationController = Location();
   LatLng userLocation = const LatLng(37.4223, -122.0848);
   bool loading = true;
@@ -46,9 +46,12 @@ class _MapPageState extends State<MapPage> {
 
     _locationSubscription = _locationController.onLocationChanged
         .listen((LocationData currentLocation) {
-      if (_isMounted && currentLocation.latitude != null && currentLocation.longitude != null) {
+      if (_isMounted &&
+          currentLocation.latitude != null &&
+          currentLocation.longitude != null) {
         setState(() {
-          userLocation = LatLng(currentLocation.latitude!, currentLocation.longitude!);
+          userLocation =
+              LatLng(currentLocation.latitude!, currentLocation.longitude!);
           _cameraToPosition(userLocation);
           loading = false;
         });
@@ -79,23 +82,23 @@ class _MapPageState extends State<MapPage> {
     return Scaffold(
       body: loading
           ? const Center(
-        child: CircularProgressIndicator(),
-      )
+              child: CircularProgressIndicator(),
+            )
           : GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: userLocation,
-          zoom: 13.0,
-        ),
-        markers: {
-          Marker(
-            markerId: const MarkerId('current_location'),
-            position: userLocation,
-            icon: BitmapDescriptor.defaultMarker,
-          ),
-        },
-        onMapCreated: ((GoogleMapController controller) =>
-            _mapController.complete(controller)),
-      ),
+              initialCameraPosition: CameraPosition(
+                target: userLocation,
+                zoom: 13.0,
+              ),
+              markers: {
+                Marker(
+                  markerId: const MarkerId('current_location'),
+                  position: userLocation,
+                  icon: BitmapDescriptor.defaultMarker,
+                ),
+              },
+              onMapCreated: ((GoogleMapController controller) =>
+                  _mapController.complete(controller)),
+            ),
     );
   }
 }
