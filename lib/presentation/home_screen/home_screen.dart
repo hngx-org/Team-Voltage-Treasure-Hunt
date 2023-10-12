@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const Dashboard(),
-   const MapPage(),
+    const MapPage(),
     const SettingsScreen()
   ];
 
@@ -24,33 +24,52 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_currentIndex],
-      bottomNavigationBar: SalomonBottomBar(
-          currentIndex: _currentIndex,
-          onTap: (int _index) {
-            setState(() {
-              _currentIndex = _index;
-            });
-          },
-          items: [
-            SalomonBottomBarItem(
-              selectedColor: Colors.red,
-              unselectedColor: Colors.grey,
-              icon: const Icon(Icons.home),
-              title: const Text("Home"),
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.all(10.0),
+        decoration: const BoxDecoration(
+          color: Colors.brown,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blue,
+              offset: Offset(0, 0),
+              blurRadius: 10,
             ),
-            SalomonBottomBarItem(
-              selectedColor: Colors.green,
-              unselectedColor: Colors.grey,
-              icon: const Icon(Icons.event),
-              title: const Text("Events"),
-            ),
-            SalomonBottomBarItem(
-              selectedColor: Colors.blue,
-              unselectedColor: Colors.grey,
-              icon: const Icon(Icons.settings),
-              title: const Text("Settings"),
-            )
-          ]),
+          ],
+        ),
+        child: SalomonBottomBar(
+            currentIndex: _currentIndex,
+            onTap: (int _index) {
+              setState(() {
+                _currentIndex = _index;
+              });
+            },
+            items: [
+              SalomonBottomBarItem(
+                selectedColor: Colors.red,
+                unselectedColor: Colors.grey,
+                icon: const Icon(Icons.home),
+                title: const Text("Home"),
+              ),
+              SalomonBottomBarItem(
+                selectedColor: Colors.green,
+                unselectedColor: Colors.grey,
+                icon: const Icon(Icons.event),
+                title: const Text("Events"),
+              ),
+              SalomonBottomBarItem(
+                selectedColor: Colors.blue,
+                unselectedColor: Colors.grey,
+                icon: const Icon(Icons.settings),
+                title: const Text("Settings"),
+              )
+            ]),
+      ),
     );
   }
 }
