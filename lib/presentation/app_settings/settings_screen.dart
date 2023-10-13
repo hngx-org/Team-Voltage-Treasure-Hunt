@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -9,89 +12,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown,
-      body: ListView(
-        padding: EdgeInsets.all(16.0),
-        children: <Widget>[
-          SizedBox(
-            height: 60,
-          ),
-          Card(
-            elevation: 12,
-            color: Colors.white,
-            child: ListTile(
-              title: Text('Notification Settings'),
-              subtitle: Text('Customize your notification preferences'),
-              leading: Icon(Icons.notifications),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                // Navigate to notification settings
-              },
+      backgroundColor: Color(0xff82591B),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage(
+              'assets/images/IMG_4871.JPG',
             ),
           ),
-          SizedBox(
-            height: 40,
-          ),
-          Card(
-            elevation: 12,
-            color: Colors.white,
-            child: ListTile(
-              title: Text('Account Settings'),
-              subtitle: Text('Manage your account details'),
-              leading: Icon(Icons.account_circle),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                // Navigate to account settings
-              },
+        ),
+        child: Center(
+          child: Text(
+            'Settings',
+            style: TextStyle(
+              color: Color(0xff5FCFA3),
+              fontFamily: 'MooLahLah',
+              fontWeight: FontWeight.w800,
+              fontSize: 35.sp,
             ),
           ),
-          SizedBox(
-            height: 40,
-          ),
-          Card(
-            elevation: 12,
-            color: Colors.white,
-            child: ListTile(
-              title: Text('Privacy Settings'),
-              subtitle: Text('Control your privacy preferences'),
-              leading: Icon(Icons.privacy_tip),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                // Navigate to privacy settings
-              },
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Card(
-            elevation: 12,
-            color: Colors.white,
-            child: ListTile(
-              title: Text('Theme'),
-              subtitle: Text('Change the app theme'),
-              leading: Icon(Icons.color_lens),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                // Navigate to theme settings
-              },
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Card(
-            elevation: 12,
-            color: Colors.white,
-            child: ListTile(
-              title: Text('Log Out'),
-              leading: Icon(Icons.exit_to_app),
-              onTap: () {
-                // Handle user logout
-              },
-            ),
-          ),
-        ],
+        ),
+
       ),
     );
   }

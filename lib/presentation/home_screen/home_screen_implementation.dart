@@ -1,60 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 import 'widgets/category_grid_list.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xff82591B),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              height: 180,
-              width: 320,
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/avatar.jpg'),
-                    radius: 50,
-                  ),
-                  Column(
-                    children: [
-                      Text('points'),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text('skills'),
-                      Container(
-                        height: 10,
-                        width: 140,
-                        color: Colors.black,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                ],
+    return Scaffold(
+      backgroundColor: Color(0xff82591B),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(
+                  'assets/images/IMG_4871.JPG',
+                ),
               ),
             ),
-            SizedBox(
-              height: 20,
+            child: Center(
+              child: Text(
+                'Home',
+                style: TextStyle(
+                  color: Color(0xff5FCFA3),
+                  fontFamily: 'MooLahLah',
+                  fontWeight: FontWeight.w800,
+                  fontSize: 35.sp,
+                ),
+              ),
             ),
-            Expanded(child: CategoryGridList()),
-          ],
-        ),
+          ),
+          Positioned(
+            child: IgnorePointer(
+              ignoring: true,
+              child: Lottie.asset(
+                'assets/animations/animation_lnlie7v9.json',
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 100,
+            child: IgnorePointer(
+              ignoring: true,
+              child: Lottie.asset(
+                'assets/animations/animation_lnlie7v9.json',
+                // fit: BoxFit.cover
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

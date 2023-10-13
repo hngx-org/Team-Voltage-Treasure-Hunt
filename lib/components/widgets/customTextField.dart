@@ -39,68 +39,71 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 6).r,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-              padding: const EdgeInsets.only(left: 8.0).r,
-              child: Text(
-                label,
+    return Padding(
+      padding: const EdgeInsets.only(right: 18.0),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 6).r,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+                padding: const EdgeInsets.only(left: 8.0).r,
+                child: Text(
+                  label,
+                  style: TextStyle(
+                      color: AppColor.textColor,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: 'Onest',
+                      fontSize: 18.sp,
+                      ),
+                )),
+            const SizedBox(height: 5),
+            Container(
+              // height: 50.h,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.r),
+                  // color: AppColor.backgroundColor3,
+                  border: Border.all(
+                      color: AppColor.textColor.withOpacity(0.7)),
+                 ),
+              child: TextFormField(
+                cursorColor: Color(0xff82591B),
+                maxLines: obscureText ? 1 : 10,
+                minLines: 1,
+                obscuringCharacter: '*',
+                autovalidateMode: validateMode,
+                validator: validator,
+                controller: controller,
+                keyboardType: inputType,
+                readOnly: readOnly,
+                obscureText: obscureText,
                 style: TextStyle(
-                    color: AppColor.textColor,
-                    fontWeight: FontWeight.w300,
-                    fontFamily: 'Onest',
-                    fontSize: 18.sp,
-                    ),
-              )),
-          const SizedBox(height: 5),
-          Container(
-            height: 50.h,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.r),
-                // color: AppColor.backgroundColor3,
-                border: Border.all(
-                    color: AppColor.textColor.withOpacity(0.7)),
-               ),
-            child: TextFormField(
-              cursorColor: const Color(0xff82591B),
-              maxLines: obscureText ? 1 : 10,
-              minLines: 1,
-              obscuringCharacter: '*',
-              autovalidateMode: validateMode,
-              validator: validator,
-              controller: controller,
-              keyboardType: inputType,
-              readOnly: readOnly,
-              obscureText: obscureText,
-              style: TextStyle(
-                letterSpacing: 2,
-                color: const Color(0XFFEFA985),
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Onest',
-                fontSize: 14.sp,
+                  letterSpacing: 2,
+                  color: const Color(0xff82591B),
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Onest',
+                  fontSize: 14.sp,
+                ),
+                decoration: InputDecoration(
+                    prefixIcon: prefixIcon != null
+                        ? Icon(prefixIcon, color: AppColor.textColor)
+                        : null,
+                    suffixIcon: GestureDetector(
+                        onTap: iconAction,
+                        child: Icon(
+                          icon,
+                          color: Color(0xff82591B),
+                        )),
+                    hintText: hintText,
+                    hintStyle: CustomTextStyles.hintStyle,
+                    border: myBorder(),
+                    focusedBorder: myBorder(),
+                    enabledBorder: myBorder()),
+                onChanged: onChanged,
               ),
-              decoration: InputDecoration(
-                  prefixIcon: prefixIcon != null
-                      ? Icon(prefixIcon, color: AppColor.textColor)
-                      : null,
-                  suffixIcon: GestureDetector(
-                      onTap: iconAction,
-                      child: Icon(
-                        icon,
-                        color: AppColor.secondaryColor,
-                      )),
-                  hintText: hintText,
-                  hintStyle: CustomTextStyles.hintStyle,
-                  border: myBorder(),
-                  focusedBorder: myBorder(),
-                  enabledBorder: myBorder()),
-              onChanged: onChanged,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
