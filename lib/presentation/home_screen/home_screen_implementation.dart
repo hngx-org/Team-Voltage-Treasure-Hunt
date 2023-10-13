@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
+import 'widgets/category_grid_list.dart';
+
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
