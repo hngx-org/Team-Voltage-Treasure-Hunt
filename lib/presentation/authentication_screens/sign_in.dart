@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:voltage_treasure_hunt/components/widgets/customButton.dart';
 import 'package:voltage_treasure_hunt/components/widgets/customTextField.dart';
 import 'package:voltage_treasure_hunt/components/widgets/text_styles.dart';
+import 'package:voltage_treasure_hunt/presentation/authentication_screens/sign_up.dart';
 import 'package:voltage_treasure_hunt/presentation/home_screen/home_screen.dart';
 
 class SignIn extends StatefulWidget {
@@ -102,8 +103,14 @@ class _SignInState extends State<SignIn> {
                     child: CustomButton(
                       loading: isLoading,
                       buttonText: 'Sign In',
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                      onPressed: () {
+                        String name = nameController.text;
+                        String email = emailController.text;
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    HomePage(name: name, email: email)));
                       },
                     ),
                   ),
@@ -112,15 +119,25 @@ class _SignInState extends State<SignIn> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 102.0),
+                    // child: InkWell(
+                    //   onTap: () => MaterialPageRoute(
+                    //             builder: (context) =>
+                    //                 SignUp()));
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Already have an account? Sign in',
-                          style: TextStyle(
-                            color: Color(0xff996C28),
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Onest',
+                        InkWell(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SignUp()),
+                          ),
+                          child: Text(
+                            'Already have an account? Sign in',
+                            style: TextStyle(
+                              color: Color(0xff996C28),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Onest',
+                            ),
                           ),
                         ),
                         Icon(
@@ -131,6 +148,7 @@ class _SignInState extends State<SignIn> {
                       ],
                     ),
                   ),
+                  //),
                 ],
               ),
             ),
@@ -138,7 +156,6 @@ class _SignInState extends State<SignIn> {
           Positioned(
             child: Lottie.asset(
               'assets/animations/animation_lnlie7v9.json',
-              
             ),
           )
         ],

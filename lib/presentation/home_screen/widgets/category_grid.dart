@@ -4,7 +4,7 @@ class CategoryGrid extends StatelessWidget {
   final String category;
   final String imageUrl;
 
-  CategoryGrid({required this.category, required this.imageUrl});
+  const CategoryGrid({super.key, required this.category, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class CategoryGrid extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           color: Colors.white,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.grey,
               offset: Offset(0, 0),
@@ -32,10 +32,10 @@ class CategoryGrid extends StatelessWidget {
               height: 120,
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               category,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),

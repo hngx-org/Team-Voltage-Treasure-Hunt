@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voltage_treasure_hunt/components/themes/app_themes.dart';
 import 'package:device_preview/device_preview.dart';
 // import 'package:voltage_treasure_hunt/animation_samples.dart';
-import 'package:voltage_treasure_hunt/presentation/authentication_screens/sign_in.dart';
 import 'package:voltage_treasure_hunt/presentation/onboarding_screens/splash_screen.dart';
 
 void main() {

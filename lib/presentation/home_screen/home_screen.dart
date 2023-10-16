@@ -5,20 +5,31 @@ import 'package:voltage_treasure_hunt/presentation/home_screen/home_screen_imple
 import 'package:voltage_treasure_hunt/presentation/interactive_maps/map_screen.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String name;
+  final String email;
+  const HomePage({super.key, required this.name, required this.email});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _pages = [
-    const Dashboard(),
-    const MapPage(),
-    SettingsScreen()
-  ];
+  late final List<Widget> _pages;
 
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      Dashboard(
+        name: widget.name,
+        email: widget.email,
+      ),
+      const MapPage(),
+      const SettingsScreen(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +55,9 @@ class _HomePageState extends State<HomePage> {
         ),
         child: SalomonBottomBar(
             currentIndex: _currentIndex,
-            onTap: (int _index) {
+            onTap: (int index) {
               setState(() {
-                _currentIndex = _index;
+                _currentIndex = index;
               });
             },
             items: [

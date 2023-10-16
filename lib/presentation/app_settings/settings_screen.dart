@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:voltage_treasure_hunt/presentation/authentication_screens/sign_in.dart';
+
+import '../user_profile/edit_profile.dart';
 
 class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
+
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
@@ -11,83 +16,88 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       backgroundColor: Colors.brown,
       body: ListView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 60,
           ),
           Card(
             elevation: 12,
             color: Colors.white,
             child: ListTile(
-              title: Text('Notification Settings'),
-              subtitle: Text('Customize your notification preferences'),
-              leading: Icon(Icons.notifications),
-              trailing: Icon(Icons.arrow_forward),
+              title: const Text('Notification Settings'),
+              subtitle: const Text('Customize your notification preferences'),
+              leading: const Icon(Icons.notifications),
+              trailing: const Icon(Icons.arrow_forward),
               onTap: () {
                 // Navigate to notification settings
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Card(
             elevation: 12,
             color: Colors.white,
             child: ListTile(
-              title: Text('Account Settings'),
-              subtitle: Text('Manage your account details'),
-              leading: Icon(Icons.account_circle),
-              trailing: Icon(Icons.arrow_forward),
+              title: const Text('Account Settings'),
+              subtitle: const Text('Manage your account details'),
+              leading: const Icon(Icons.account_circle),
+              trailing: const Icon(Icons.arrow_forward),
               onTap: () {
-                // Navigate to account settings
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const EditProfileScreen(),
+                  ),
+                );
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Card(
             elevation: 12,
             color: Colors.white,
             child: ListTile(
-              title: Text('Privacy Settings'),
-              subtitle: Text('Control your privacy preferences'),
-              leading: Icon(Icons.privacy_tip),
-              trailing: Icon(Icons.arrow_forward),
+              title: const Text('Privacy Settings'),
+              subtitle: const Text('Control your privacy preferences'),
+              leading: const Icon(Icons.privacy_tip),
+              trailing: const Icon(Icons.arrow_forward),
               onTap: () {
                 // Navigate to privacy settings
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Card(
             elevation: 12,
             color: Colors.white,
             child: ListTile(
-              title: Text('Theme'),
-              subtitle: Text('Change the app theme'),
-              leading: Icon(Icons.color_lens),
-              trailing: Icon(Icons.arrow_forward),
+              title: const Text('Theme'),
+              subtitle: const Text('Change the app theme'),
+              leading: const Icon(Icons.color_lens),
+              trailing: const Icon(Icons.arrow_forward),
               onTap: () {
                 // Navigate to theme settings
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Card(
             elevation: 12,
             color: Colors.white,
             child: ListTile(
-              title: Text('Log Out'),
-              leading: Icon(Icons.exit_to_app),
+              title: const Text('Log Out'),
+              leading: const Icon(Icons.exit_to_app),
               onTap: () {
-                // Handle user logout
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => SignIn())));
               },
             ),
           ),
