@@ -4,7 +4,6 @@ description: A treasure hunt application.
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-
 version: 1.0.0+1
 
 environment:
@@ -12,9 +11,6 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   device_preview: ^1.1.0
-  arcore_flutter_plugin: ^0.1.0
-  firebase_auth: ^4.10.1
-  firebase_core: ^2.17.0
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.1.0

@@ -22,7 +22,7 @@ class IntroScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 50.h,
+              height: 55.h,
             ),
             Container(
               height: 625.h,

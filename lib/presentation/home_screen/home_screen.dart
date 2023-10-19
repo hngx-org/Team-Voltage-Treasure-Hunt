@@ -28,7 +28,8 @@ class _HomePageState extends State<HomePage> {
         name: widget.name,
         email: widget.email,
       ),
-      const MapPage(),
+      // const MapPage(),
+      MapScreen(),
       SettingsScreen()
     ];
 
@@ -57,8 +58,8 @@ class _HomePageState extends State<HomePage> {
             SalomonBottomBarItem(
               selectedColor: Color(0xff5FCFA3),
               unselectedColor: Colors.grey,
-              icon: const Icon(Icons.map_rounded),
-              title: const Text("Events"),
+              icon: const Icon(Icons.location_city_rounded),
+              title: const Text("Arenas"),
             ),
             SalomonBottomBarItem(
               selectedColor: Color(0xff5FCFA3),
