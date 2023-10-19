@@ -77,6 +77,8 @@ class _MapPageState extends State<MapPage> {
     _locationSubscription.cancel();
   }
 
+// ignore_for_file: unused_field, prefer_final_fields, prefer_const_constructors
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

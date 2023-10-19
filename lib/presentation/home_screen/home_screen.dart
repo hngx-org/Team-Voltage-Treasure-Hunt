@@ -1,22 +1,39 @@
-// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers
+// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:voltage_treasure_hunt/presentation/app_settings/settings_screen.dart';
-import 'package:voltage_treasure_hunt/presentation/home_screen/home_screen_implementation.dart';
+import 'package:voltage_treasure_hunt/presentation/home_screen/Dashboard.dart';
 import 'package:voltage_treasure_hunt/presentation/interactive_maps/map_screen.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String name;
+  final String email;
+  const HomePage({super.key, required this.name, required this.email});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _pages = [ Dashboard(), const MapPage(), const SettingsScreen()];
+  late final List<Widget> _pages;
 
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      Dashboard(
+        name: widget.name,
+        email: widget.email,
+      ),
+      const MapPage(),
+      SettingsScreen()
+    ];
+
+    int _currentIndex = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +67,6 @@ class _HomePageState extends State<HomePage> {
               title: const Text("Settings"),
             )
           ]),
-
     );
   }
 }
