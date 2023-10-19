@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:voltage_treasure_hunt/components/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voltage_treasure_hunt/components/widgets/text_styles.dart';
 
 class CustomButton extends StatelessWidget {
@@ -30,6 +30,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 60.h,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: !loading ? onPressed : null,
@@ -53,10 +54,12 @@ class CustomButton extends StatelessWidget {
                 buttonText ?? "",
                 style: CustomTextStyles.buttonTextStyle)
             : SizedBox(
-                height: 20,
-                width: 20,
+                height: 20.h,
+                width: 20.w,
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(AppColor.white),
+                  valueColor: AlwaysStoppedAnimation(
+                    Color(0xffDCC18C),
+                  ),
                 ),
               ),
       ),

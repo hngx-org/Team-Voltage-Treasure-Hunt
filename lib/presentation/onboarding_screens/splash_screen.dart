@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
 import 'package:voltage_treasure_hunt/presentation/onboarding_screens/intro.dart';
+// import 'package:audiopla';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void navigateToSignIn() async {
     await Future.delayed(const Duration(seconds: 3), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const IntroScreen()));
+          context, MaterialPageRoute(builder: (context) =>  IntroScreen()));
     });
   }
 

@@ -15,7 +15,7 @@ class CustomTextStyles {
     color: AppColor.secondaryColor,
     fontWeight: FontWeight.w500,
     fontFamily: 'Onest',
-    // fontSize: 16.sp,
+    fontSize: 16.sp,
   );
 
   static TextStyle hintStyle = TextStyle(

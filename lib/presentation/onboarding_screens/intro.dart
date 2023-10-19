@@ -1,45 +1,31 @@
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voltage_treasure_hunt/components/widgets/customButton.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:voltage_treasure_hunt/presentation/authentication_screens/sign_up.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 116, 168, 190),
-      body: GlassmorphicContainer(
+      backgroundColor: Color(0xFF93BED1),
+      body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        borderRadius: 30,
-        border: 0,
-        blur: 4,
-        linearGradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.white.withOpacity(0.2),
-            Colors.white.withOpacity(0.2),
-          ],
-        ),
-        borderGradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.white.withOpacity(0),
-            Colors.white.withOpacity(0),
-          ],
-        ),
+        
         child: Column(
           children: [
             SizedBox(
-              height: 70.h,
+              height: 50.h,
             ),
             Container(
-              height: 600.h,
+              height: 625.h,
               width: 390.w,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(22),
@@ -57,7 +43,7 @@ class IntroScreen extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 22.0),
+                  padding: const EdgeInsets.only(left: 40.0).r,
                   child: Row(
                     children: [
                       Text(
@@ -67,7 +53,7 @@ class IntroScreen extends StatelessWidget {
                             color: Color(0xFF0C3772),
                             fontFamily: 'Onest',
                             fontWeight: FontWeight.w700,
-                            fontSize: 28.sp),
+                            fontSize: 26.sp),
                       ),
                       Text(
                         '☠️',
@@ -84,7 +70,8 @@ class IntroScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                     left: 17,
                     right: 17,
-                    top: 15,
+                    top: 0,
+                    bottom: 10
                   ).r,
                   child: Text(
                     textAlign: TextAlign.center,
@@ -92,7 +79,7 @@ class IntroScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Color(0xFF0C3772),
                         fontFamily: 'Onest',
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16.sp),
                   ),
                 ),
@@ -100,7 +87,7 @@ class IntroScreen extends StatelessWidget {
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 16),
+                  const EdgeInsets.symmetric(horizontal: 31.0).r,
               child: CustomButton(
                 buttonText: 'Get Started',
                 onPressed: () {
