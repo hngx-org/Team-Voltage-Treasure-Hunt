@@ -28,7 +28,8 @@ class _HomePageState extends State<HomePage> {
         name: widget.name,
         email: widget.email,
       ),
-      const MapPage(),
+      // const MapPage(),
+      MapScreen(),
       SettingsScreen()
     ];
 
