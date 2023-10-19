@@ -43,7 +43,7 @@ class _DashboardState extends State<Dashboard> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 30.h,
+                height: 40.h,
               ),
               SingleChildScrollView(
                 child: Container(
@@ -158,7 +158,7 @@ class _DashboardState extends State<Dashboard> {
                 height: 10.h,
               ),
               Container(
-                height: 540.h,
+                height: 530.h,
                 width: 405.w,
                 decoration: BoxDecoration(
                     color: Color(0xff001532),
