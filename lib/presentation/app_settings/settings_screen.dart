@@ -32,7 +32,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 45.h,
+                    height: 50.h,
                   ),
                   Text(
                     'Settings',

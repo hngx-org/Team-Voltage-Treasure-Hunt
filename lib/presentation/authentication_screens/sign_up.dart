@@ -49,19 +49,18 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Color(0xffDDC599),
-        body: Stack(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/images/IMG_4867.JPG'),
-                ),
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Color(0xffDDC599),
+      body: Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('assets/images/IMG_4867.JPG'),
+
               ),
               child: SingleChildScrollView(
                 child: Center(
