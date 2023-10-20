@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, use_key_in_widget_constructors, avoid_print
+
 import 'dart:async';
 // import 'package:flutter/material.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -123,7 +124,8 @@ class _MapScreenState extends State<MapScreen> {
   double circleRadius = 200;
 
   Set<Marker> markers = {};
-  Set<Circle> circles = {};
+  Set<Circle> circles = {}; // Define a set of circles
+
   StreamSubscription<LocationData>? _locationSubscription;
 
   @override
@@ -134,50 +136,30 @@ class _MapScreenState extends State<MapScreen> {
 
   void getCurrentLocation() async {
     Location location = Location();
+    currentLocation = await location.getLocation();
+    addCurrentLocMarker(currentLocation!);
+    _locationSubscription = location.onLocationChanged.listen((newLoc) {
+      setState(() {
+        currentLocation = newLoc;
+        addCurrentLocMarker(newLoc);
 
-    if (!await location.serviceEnabled()) {
-      if (!await location.requestService()) {
-        print("Location services are not available.");
-        return;
-      }
-    }
-
-    var permission = await location.hasPermission();
-    if (permission != PermissionStatus.granted) {
-      if (await location.requestPermission() != PermissionStatus.granted) {
-        print("Location permissions are denied.");
-        return;
-      }
-    }
-
-    try {
-      currentLocation = await location.getLocation();
-      addCurrentLocMarker(currentLocation!);
-      _locationSubscription = location.onLocationChanged.listen((newLoc) {
-        setState(() {
-          currentLocation = newLoc;
-          addCurrentLocMarker(newLoc);
-
-          var distanceBetween = haversineDistance(
-              LatLng(newLoc.latitude!, newLoc.longitude!), destinationLocation);
-          print('Distance between: $distanceBetween');
-          if (distanceBetween < circleRadius) {
-            print('User reached the destination');
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  'You reached the location',
-                  style: TextStyle(color: Colors.white),
-                ),
-                backgroundColor: Colors.redAccent,
+        var distanceBetween = haversineDistance(
+            LatLng(newLoc.latitude!, newLoc.longitude!), destinationLocation);
+        print('Distance between: $distanceBetween');
+        if (distanceBetween < circleRadius) {
+          print('User reached the destination');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'You reached the location',
+                style: TextStyle(color: Colors.white),
               ),
-            );
-          }
-        });
+              backgroundColor: Colors.redAccent,
+            ),
+          );
+        }
       });
-    } catch (e) {
-      print("Error obtaining location: $e");
-    }
+    });
   }
 
   @override
@@ -201,6 +183,7 @@ class _MapScreenState extends State<MapScreen> {
     );
     markers.add(currentLocMarker);
   }
+
   double haversineDistance(LatLng player1, LatLng player2) {
     double lat1 = player1.latitude;
     double lon1 = player1.longitude;
@@ -222,24 +205,18 @@ class _MapScreenState extends State<MapScreen> {
     return d;
   }
 
-  void goToCurrentLocation() {
-    if (currentLocation != null && mapController != null) {
-      mapController!.animateCamera(CameraUpdate.newLatLng(
-        LatLng(currentLocation!.latitude!, currentLocation!.longitude!),
-      ));
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
-          target: LatLng(currentLocation?.latitude ?? 0.0, currentLocation?.longitude ?? 0.0),
+          target: LatLng(currentLocation?.latitude ?? 0.0,
+              currentLocation?.longitude ?? 0.0),
           zoom: 13,
         ),
         onMapCreated: (GoogleMapController controller) {
           mapController = controller;
+          // Define the circles here and add them to the set
           circles.add(Circle(
             circleId: CircleId('geo_fence_1'),
             center: destinationLocation,
@@ -250,16 +227,8 @@ class _MapScreenState extends State<MapScreen> {
           ));
         },
         markers: markers,
-        circles: circles,
+        circles: circles, // Set the circles on the GoogleMap widget
       ),
-  floatingActionButton: Container(
-  margin: EdgeInsets.only(bottom: 0.0, right: 35.0),
-  child: FloatingActionButton(
-    mini: true,
-    onPressed: goToCurrentLocation,
-    child: Icon(Icons.location_searching),
-  ),
-)
     );
   }
 }

@@ -13,88 +13,91 @@ class IntroScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xFF93BED1),
-        body: Padding(
-          padding: EdgeInsets.all(20.r),
-          child: Column(
-            children: [
-              Flexible(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(
-                        'assets/images/IMG_4866.JPG',
+    return Scaffold(
+      backgroundColor: Color(0xFF93BED1),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        
+        child: Column(
+          children: [
+            SizedBox(
+              height: 50.h,
+            ),
+            Container(
+              height: 625.h,
+              width: 390.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(22),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(
+                    'assets/images/IMG_4866.JPG',
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 40.0).r,
+                  child: Row(
+                    children: [
+                      Text(
+                        ''' Welcome to Treasure Tails''',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Color(0xFF0C3772),
+                            fontFamily: 'Onest',
+                            fontWeight: FontWeight.w700,
+                            fontSize: 26.sp),
                       ),
-                    ),
+                      Text(
+                        '☠️',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontFamily: 'Onest',
+                            fontWeight: FontWeight.w700,
+                            fontSize: 28.sp),
+                      )
+                    ],
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 40.0).r,
-                    child: Row(
-                      children: [
-                        Text(
-                          ''' Welcome to Treasure Tails''',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Color(0xFF0C3772),
-                              fontFamily: 'Onest',
-                              fontWeight: FontWeight.w700,
-                              fontSize: 26.sp),
-                        ),
-                        Text(
-                          '☠️',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontFamily: 'Onest',
-                              fontWeight: FontWeight.w700,
-                              fontSize: 28.sp),
-                        )
-                      ],
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 17,
+                    right: 17,
+                    top: 0,
+                    bottom: 10
+                  ).r,
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    '''Customize your avatar, explore maps, and interact with augmented reality objects. Join the hunt, compete on leaderboards, and immerse yourself in an unforgettable adventure. Are you ready to find the hidden treasures in your world?''',
+                    style: TextStyle(
+                        color: Color(0xFF0C3772),
+                        fontFamily: 'Onest',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.sp),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 17,
-                      right: 17,
-                      top: 0,
-                      bottom: 10
-                    ).r,
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      '''Customize your avatar, explore maps, and interact with augmented reality objects. Join the hunt, compete on leaderboards, and immerse yourself in an unforgettable adventure. Are you ready to find the hidden treasures in your world?''',
-                      style: TextStyle(
-                          color: Color(0xFF0C3772),
-                          fontFamily: 'Onest',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16.sp),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 31.0).r,
-                child: CustomButton(
-                  buttonText: 'Get Started',
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const SignUp()));
-                        //  MaterialPageRoute(builder: (context) => const HomePage()));
-                  },
                 ),
-              )
-            ],
-          ),
+              ],
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 31.0).r,
+              child: CustomButton(
+                buttonText: 'Get Started',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const SignUp()));
+                      //  MaterialPageRoute(builder: (context) => const HomePage()));
+                },
+              ),
+            )
+          ],
         ),
       ),
     );

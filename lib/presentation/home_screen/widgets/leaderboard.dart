@@ -17,7 +17,7 @@ class LeaderBoard extends StatelessWidget {
         children: [
           leader(
             '1',
-            userName.toUpperCase(),
+            userName.toUpperCase() ,
             '5',
             medals(),
             medals(),

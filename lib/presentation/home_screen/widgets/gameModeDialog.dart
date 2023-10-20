@@ -26,11 +26,12 @@ class GameModeDialog extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => 
-                    // MapPage()
-                    MapScreen()
-                    ));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            // MapPage()
+                            MapScreen()));
               },
               child: Container(
                 height: 70.h,
@@ -55,13 +56,12 @@ class GameModeDialog extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => 
-                    // MapPage()
-                    MapScreen()
-                    
-                    ));
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            // MapPage()
+                            MapScreen()));
               },
               child: Container(
                 height: 70.h,
