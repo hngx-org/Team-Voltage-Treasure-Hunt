@@ -25,7 +25,7 @@ class ScreenToggle extends StatelessWidget {
       width: 300.w,
       decoration: BoxDecoration(
         color: Color(0xff001532),
-        borderRadius: BorderRadius.circular(23.r),
+        borderRadius: BorderRadius.circular(22.r),
         border: Border.all(color: Color(0xff5FCFA3),)
       ),
       child: Row(
@@ -59,7 +59,7 @@ class ScreenToggle extends StatelessWidget {
             onTap: onTap,
             child: Material(
               elevation: elevation,
-              borderRadius: BorderRadius.circular(22.r),
+              borderRadius: BorderRadius.circular(22),
               color: Colors.transparent,
               child: Container(
                 height: 50.h,
