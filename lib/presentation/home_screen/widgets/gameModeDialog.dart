@@ -61,6 +61,7 @@ class GameModeDialog extends StatelessWidget {
                     MapScreen()
                     
                     ));
+
               },
               child: Container(
                 height: 70.h,
