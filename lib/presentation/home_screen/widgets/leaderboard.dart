@@ -24,10 +24,13 @@ class LeaderBoard extends StatelessWidget {
             medals(),
             medals(),
             medals(),
-           Color.fromARGB(255, 44, 62, 94),  Color.fromARGB(255, 75, 137, 112),
+            Color.fromARGB(255, 44, 62, 94),
+            Color.fromARGB(255, 75, 137, 112),
           ),
-          SizedBox(
-            height: 12.h,
+          Divider(
+            indent: 20.w,
+            endIndent: 20.w,
+            color: Color(0xff5FCFA3),
           ),
           leader(
             '2',
@@ -41,8 +44,10 @@ class LeaderBoard extends StatelessWidget {
             Color(0xff152339),
             Color(0xff285744),
           ),
-          SizedBox(
-            height: 12.h,
+          Divider(
+            indent: 20.w,
+            endIndent: 20.w,
+            color: Color(0xff5FCFA3),
           ),
           leader(
             '3',
@@ -51,12 +56,15 @@ class LeaderBoard extends StatelessWidget {
             medals(),
             medals(),
             medals(),
-            Text(''),Text(''),
+            Text(''),
+            Text(''),
             Color(0xff152339),
             Color(0xff285744),
           ),
-          SizedBox(
-            height: 12.h,
+          Divider(
+            indent: 20.w,
+            endIndent: 20.w,
+            color: Color(0xff5FCFA3),
           ),
           leader(
             '2',
@@ -64,19 +72,26 @@ class LeaderBoard extends StatelessWidget {
             '2',
             medals(),
             medals(),
-           Text(''),Text(''),Text(''),
+            Text(''),
+            Text(''),
+            Text(''),
             Color(0xff152339),
             Color(0xff285744),
           ),
-          SizedBox(
-            height: 12.h,
+          Divider(
+            indent: 20.w,
+            endIndent: 20.w,
+            color: Color(0xff5FCFA3),
           ),
           leader(
             '5',
             'PLAYER 5',
             '1',
             medals(),
-            Text(''),Text(''),Text(''),Text(''),
+            Text(''),
+            Text(''),
+            Text(''),
+            Text(''),
             Color(0xff152339),
             Color(0xff285744),
           ),
