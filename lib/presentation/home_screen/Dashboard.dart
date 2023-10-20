@@ -84,7 +84,7 @@ class _DashboardState extends State<Dashboard> {
                         ),
                       ),
                       SizedBox(
-                          width: 200.w,
+                          width: 220.w,
                           child: Center(
                             child: Text(
                               widget.email,
