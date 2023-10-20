@@ -23,6 +23,9 @@ dependencies:
   location: ^5.0.0
   lottie: ^2.6.0
   salomon_bottom_bar: ^3.3.2
+  google_sign_in: ^6.1.5
+  firebase_auth: ^4.11.1
+  firebase_core: ^2.19.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

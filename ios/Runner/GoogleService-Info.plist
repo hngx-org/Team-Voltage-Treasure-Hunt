@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>845771914261-d64njkreua6nrlgvdn0d6k6t0383ekhr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.845771914261-d64njkreua6nrlgvdn0d6k6t0383ekhr</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>845771914261-30f2c9v1g44sv3fbnlhvevj3tqm271s4.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDsKTXrylv6oFpGPVWrB8AZletNc1s_F90</string>
+	<key>GCM_SENDER_ID</key>
+	<string>845771914261</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.voltageTreasureHunt</string>
+	<key>PROJECT_ID</key>
+	<string>assets-trader</string>
+	<key>STORAGE_BUCKET</key>
+	<string>assets-trader.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:845771914261:ios:3e3304608fb040231c621c</string>
+</dict>
+</plist>
