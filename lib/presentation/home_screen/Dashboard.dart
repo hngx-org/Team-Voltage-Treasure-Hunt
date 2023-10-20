@@ -8,7 +8,6 @@ import 'package:voltage_treasure_hunt/presentation/home_screen/widgets/gameModeD
 import 'package:voltage_treasure_hunt/presentation/home_screen/widgets/leaderboard.dart';
 import 'package:voltage_treasure_hunt/presentation/home_screen/widgets/screenToggles.dart';
 
-
 class Dashboard extends StatefulWidget {
   final String name;
   final String email;
@@ -47,31 +46,30 @@ class _DashboardState extends State<Dashboard> {
               ),
               SingleChildScrollView(
                 child: Container(
-                  decoration:  BoxDecoration(
+                  decoration: BoxDecoration(
                       color: Color(0xff001532),
                       borderRadius: BorderRadius.all(Radius.circular(22.r))),
                   height: 200.h,
                   width: 405.w,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 32).r,
-                        child:  CircleAvatar(
-                          backgroundColor: Color(0xff001532),
-                          backgroundImage: AssetImage('assets/images/avatar.jpg'),
-                          radius: 60.r,
+                      SizedBox(width: 10.w),
+                      CircleAvatar(
+                        backgroundColor:  Color(0xff001532),
+                        radius: 90.r,
+                        child: SizedBox(
+                          height: 170.h,
+                          width: double.infinity,
+                          child: Lottie.asset(
+                            'assets/animations/animation_lny12g3w.json',
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 15.w,
                       ),
                       Column(
                         children: [
                           SizedBox(
-                            height: 30.h,
+                            height: 40.h,
                           ),
                           SizedBox(
                             width: 160.w,
@@ -86,12 +84,13 @@ class _DashboardState extends State<Dashboard> {
                               ),
                             ),
                           ),
-                          
                           SizedBox(
                               width: 220.w,
                               child: Center(
                                 child: Text(
-                                  widget.email.isEmpty ? 'player2023@gmail.com' : widget.email,
+                                  widget.email.isEmpty
+                                      ? 'player2023@gmail.com'
+                                      : widget.email,
                                   style: TextStyle(
                                       color: Color(0xff5FCFA3),
                                       fontFamily: 'Onest',
@@ -99,7 +98,7 @@ class _DashboardState extends State<Dashboard> {
                                       fontSize: 12.sp),
                                 ),
                               )),
-                         SizedBox(
+                          SizedBox(
                             height: 10.h,
                           ),
                           Row(
@@ -107,7 +106,7 @@ class _DashboardState extends State<Dashboard> {
                             children: [
                               SizedBox(
                                   width: 140.w,
-                                  child:  Text('Points:',
+                                  child: Text('Points:',
                                       style: TextStyle(
                                           color: Color(0xff5FCFA3),
                                           fontFamily: 'Onest',
@@ -119,7 +118,7 @@ class _DashboardState extends State<Dashboard> {
                                       fontSize: 14.sp))
                             ],
                           ),
-                         SizedBox(
+                          SizedBox(
                             height: 10.h,
                           ),
                           Row(
@@ -127,7 +126,7 @@ class _DashboardState extends State<Dashboard> {
                             children: [
                               SizedBox(
                                   width: 150.w,
-                                  child:  Text('Level:',
+                                  child: Text('Level:',
                                       style: TextStyle(
                                           color: Color(0xff5FCFA3),
                                           fontFamily: 'Onest',
@@ -154,7 +153,7 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ),
               ),
-       SizedBox(
+              SizedBox(
                 height: 10.h,
               ),
               Container(
@@ -184,8 +183,12 @@ class _DashboardState extends State<Dashboard> {
                         },
                       ),
                     ),
-         
-                    !isTapped ? LeaderBoard(userName: widget.name.isEmpty ? 'PLAYER 1' : widget.name,) : Achievements()
+                    !isTapped
+                        ? LeaderBoard(
+                            userName:
+                                widget.name.isEmpty ? 'PLAYER 1' : widget.name,
+                          )
+                        : Achievements()
                   ],
                 ),
               ),
@@ -207,8 +210,7 @@ class _DashboardState extends State<Dashboard> {
                   decoration: BoxDecoration(
                       color: Color(0xff001532),
                       borderRadius: BorderRadius.circular(22.r),
-                      border:
-                          Border.all(color: Color(0xFF227654))),
+                      border: Border.all(color: Color(0xFF227654))),
                   child: Center(
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -238,4 +240,3 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 }
-
