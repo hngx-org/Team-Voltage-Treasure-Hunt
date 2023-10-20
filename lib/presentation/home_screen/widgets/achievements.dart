@@ -10,6 +10,7 @@ class Achievements extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(height: 100.h,),
         Icon(
           Icons.hourglass_empty_rounded,
           color: Color(0xFF73E2B5),

@@ -1,85 +1,208 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LeaderBoard extends StatelessWidget {
- LeaderBoard({super.key});
-int itemCount = 0;
+  final String userName;
+  const LeaderBoard({super.key, required this.userName});
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-  itemCount: itemCount, 
-  itemBuilder: (BuildContext context, int index) {
-
-    return ListTile(
-      title: Text('Item $index'), // Replace with your actual item data.
+    return Container(
+      height: 440.h,
+      child: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          leader(
+            '1',
+            userName.toUpperCase(),
+            '5',
+            medals(),
+            medals(),
+            medals(),
+            medals(),
+            medals(),
+           Color.fromARGB(255, 44, 62, 94),  Color.fromARGB(255, 75, 137, 112),
+          ),
+          SizedBox(
+            height: 12.h,
+          ),
+          leader(
+            '2',
+            'PLAYER 2',
+            '4',
+            medals(),
+            medals(),
+            medals(),
+            medals(),
+            Text(''),
+            Color(0xff152339),
+            Color(0xff285744),
+          ),
+          SizedBox(
+            height: 12.h,
+          ),
+          leader(
+            '3',
+            'PLAYER 3',
+            '3',
+            medals(),
+            medals(),
+            medals(),
+            Text(''),Text(''),
+            Color(0xff152339),
+            Color(0xff285744),
+          ),
+          SizedBox(
+            height: 12.h,
+          ),
+          leader(
+            '2',
+            'PLAYER 4',
+            '2',
+            medals(),
+            medals(),
+           Text(''),Text(''),Text(''),
+            Color(0xff152339),
+            Color(0xff285744),
+          ),
+          SizedBox(
+            height: 12.h,
+          ),
+          leader(
+            '5',
+            'PLAYER 5',
+            '1',
+            medals(),
+            Text(''),Text(''),Text(''),Text(''),
+            Color(0xff152339),
+            Color(0xff285744),
+          ),
+        ],
+      ),
     );
-  },
-);
-    // Column(
-    //   children: [
-    //     SizedBox(
-    //       height: 120.h,
-    //       width: double.infinity,
-    //       child: Lottie.asset(
-    //         'assets/animations/animation_lnlicjhd.json',
-    //       ),
-    //     ),
-    //     // 
-    //     Text('Click below to begin your journey!!!',
-    //     textAlign: TextAlign.center,
-    //         style: TextStyle(
-    //           color: Color(0xFF73E2B5),
-    //           fontFamily: 'Onest',
-    //           fontWeight: FontWeight.w900,
-    //         )),
-    //   ],
-    // );
+  }
+
+  Center leader(
+    String firstNumber,
+    String name,
+    String secondNumber,
+    Widget? medal1,
+    Widget? medal2,
+    Widget? medal3,
+    Widget? medal4,
+    Widget? medal5,
+    Color color1,
+    Color color2,
+  ) {
+    return Center(
+      child: Row(
+        children: [
+          SizedBox(
+            width: 15.w,
+          ),
+          Container(
+              height: 55.h,
+              width: 55.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                gradient: LinearGradient(
+                    colors: [color1, color2],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight),
+              ),
+              child: Center(
+                child: Text(firstNumber,
+                    style: TextStyle(
+                        color: Color(0xff5FCFA3),
+                        fontFamily: 'Onest',
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold)),
+              )),
+          SizedBox(
+            width: 10.h,
+          ),
+          Container(
+            height: 55.h,
+            width: 55.w,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                  colors: [color1, color2],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight),
+            ),
+            child: Center(
+              child: Icon(
+                FontAwesomeIcons.skullCrossbones,
+                size: 22.r,
+                color: Color(0xff5FCFA3),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 10.h,
+          ),
+          Container(
+              height: 55.h,
+              width: 250.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                gradient: LinearGradient(
+                    colors: [color1, color2],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight),
+              ),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(name,
+                        style: TextStyle(
+                            color: Color(0xff5FCFA3),
+                            fontFamily: 'Onest',
+                            fontSize: 18.sp)),
+                    Row(
+                      children: [
+                        medal1!,
+                        SizedBox(
+                          width: 2.h,
+                        ),
+                        medal2!,
+                        SizedBox(
+                          width: 2.h,
+                        ),
+                        medal3!,
+                        SizedBox(
+                          width: 2.h,
+                        ),
+                        medal4!,
+                        SizedBox(
+                          width: 2.h,
+                        ),
+                        medal5!,
+                      ],
+                    ),
+                    Text(secondNumber,
+                        style: TextStyle(
+                            color: Color(0xff5FCFA3),
+                            fontFamily: 'Onest',
+                            fontSize: 18.sp)),
+                  ],
+                ),
+              )),
+        ],
+      ),
+    );
   }
 }
 
-
-// Row(
-//           children: [
-//             SizedBox(
-//               width: 10.h,
-//             ),
-//             Container(
-//               height: 30.h,
-//               width: 35.w,
-//               decoration: BoxDecoration(
-//                 borderRadius: BorderRadius.circular(42),
-//                 gradient: LinearGradient(colors: [
-//                   Color(0xff001532),
-//                   Color.fromARGB(255, 47, 146, 106),
-//                 ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-//               ),
-//             ),
-//             SizedBox(
-//               width: 5.h,
-//             ),
-//             Container(
-//               height: 30.h,
-//               width: 35.w,
-//               decoration: BoxDecoration(
-//                 borderRadius: BorderRadius.circular(42),
-//                 gradient: LinearGradient(colors: [
-//                   Color(0xff001532),
-//                   Color.fromARGB(255, 47, 146, 106),
-//                 ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-//               ),
-//             ),
-//             SizedBox(
-//               width: 5.h,
-//             ),
-//             Container(
-//               height: 35.h,
-//               width: 240.w,
-//               decoration: BoxDecoration(
-//                 borderRadius: BorderRadius.circular(42),
-//                 gradient: LinearGradient(colors: [
-//                   Color(0xff001532),
-//                   Color.fromARGB(255, 47, 146, 106),
-//                 ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-//               ),
-//             ),
-//           ],
-//         ),
+Icon medals() {
+  return Icon(
+    FontAwesomeIcons.medal,
+    size: 14.r,
+    color: Colors.yellow,
+  );
+}
