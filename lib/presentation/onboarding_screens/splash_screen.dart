@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:voltage_treasure_hunt/presentation/onboarding_screens/intro.dart';
 // import 'package:audiopla';
@@ -17,18 +18,36 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void navigateToSignIn() async {
-    await Future.delayed(const Duration(seconds: 3), () {
+    await Future.delayed(const Duration(seconds: 7), () async {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) =>  IntroScreen()));
+           await player.stop();
     });
   }
 
+final player = AudioPlayer();
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    navigateToSignIn();
+      _loadAndPlayAudio();
+  navigateToSignIn();
+
+  
   }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
+
+  void _loadAndPlayAudio() async {
+    await player.setAsset('assets/audio/splashscreen.mp3');
+    player.setVolume(0.25);
+    await player.play();
+  }
+
 
   @override
   Widget build(BuildContext context) {

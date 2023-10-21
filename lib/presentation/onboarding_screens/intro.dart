@@ -2,14 +2,38 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:voltage_treasure_hunt/components/widgets/customButton.dart';
 import 'package:voltage_treasure_hunt/presentation/authentication_screens/sign_up.dart';
 
-class IntroScreen extends StatelessWidget {
+class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
 
+  @override
+  State<IntroScreen> createState() => _IntroScreenState();
+}
 
+class _IntroScreenState extends State<IntroScreen> {
+final player = AudioPlayer();
 
+  @override
+  void initState() {
+    super.initState();
+
+    _loadAndPlayAudio();
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
+
+  void _loadAndPlayAudio() async {
+    await player.setAsset('assets/audio/homepage.mp3');
+    player.setVolume(0.25);
+    await player.play();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +67,7 @@ class IntroScreen extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 40.0).r,
+                  padding: const EdgeInsets.only(left: 15.0).r,
                   child: Row(
                     children: [
                       Text(
@@ -90,9 +114,10 @@ class IntroScreen extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 31.0).r,
               child: CustomButton(
                 buttonText: 'Get Started',
-                onPressed: () {
+                onPressed: () async {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const SignUp()));
+                       await player.stop();
                       //  MaterialPageRoute(builder: (context) => const HomePage()));
                 },
               ),

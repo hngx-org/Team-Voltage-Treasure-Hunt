@@ -42,7 +42,7 @@ class _DashboardState extends State<Dashboard> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 40.h,
+                height: 55.h,
               ),
               SingleChildScrollView(
                 child: Container(
@@ -52,9 +52,9 @@ class _DashboardState extends State<Dashboard> {
                   height: 200.h,
                   width: 405.w,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    
                     children: [
-                      SizedBox(width: 10.w),
+                      
                       CircleAvatar(
                         backgroundColor:  Color(0xff001532),
                         radius: 90.r,
@@ -125,7 +125,7 @@ class _DashboardState extends State<Dashboard> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               SizedBox(
-                                  width: 150.w,
+                                  width: 155.w,
                                   child: Text('Level:',
                                       style: TextStyle(
                                           color: Color(0xff5FCFA3),
@@ -141,7 +141,7 @@ class _DashboardState extends State<Dashboard> {
                           SizedBox(height: 15.h),
                           Container(
                             height: 5.h,
-                            width: 155.w,
+                            width: 165.w,
                             color: Color(0xff5FCFA3),
                           ),
                           SizedBox(

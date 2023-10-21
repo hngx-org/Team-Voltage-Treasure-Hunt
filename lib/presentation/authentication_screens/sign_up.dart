@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:voltage_treasure_hunt/components/widgets/customButton.dart';
 import 'package:voltage_treasure_hunt/components/widgets/customTextField.dart';
@@ -37,21 +38,54 @@ class _SignUpState extends State<SignUp> {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => HomePage(
+          builder: (context) => SignIn(
                 name: nameController.text,
-                email: emailController.text,
+                confirmPassword: confirmPasswordController.text,
+                createEmail: emailController.text,
               )),
     );
 
     setState(() {
       isLoading = false;
     });
+    await player.stop();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Registered Successfully, Sign In with your details.',
+            style: TextStyle(
+                color: Color(0xff5FCFA3),
+                fontFamily: 'Onest',
+                fontSize: 14.sp)),
+        backgroundColor: Color(0xff001532), // Set the background color to green
+      ),
+    );
+  }
+
+  final player = AudioPlayer();
+
+  void _loadAndPlayAudio() async {
+    await player.setAsset('assets/audio/signupscreen.mp3');
+    player.setVolume(0.25);
+    await player.play();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _loadAndPlayAudio();
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       backgroundColor: Color(0xffDDC599),
       body: Stack(
         children: [
@@ -149,38 +183,76 @@ class _SignUpState extends State<SignUp> {
                       child: CustomButton(
                         loading: isLoading,
                         buttonText: 'Sign Up',
-                        onPressed: _signUpAndNavigate,
+                        onPressed: () {
+                          emailController.text.isEmpty ||
+                                  nameController.text.isEmpty ||
+                                  passwordController.text.isEmpty ||
+                                  confirmPasswordController.text.isEmpty
+                              ? ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Please, input your details.',
+                                      style: TextStyle(
+                                        color: Color(0xff5FCFA3),
+                                        fontFamily: 'Onest',
+                                        fontSize: 14.sp,
+                                      ),
+                                    ),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                )
+                              : passwordController.text !=
+                                      confirmPasswordController.text
+                                  ? ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Passwords do not match. Please try again.',
+                                          style: TextStyle(
+                                            color: Color(0xff5FCFA3),
+                                            fontFamily: 'Onest',
+                                            fontSize: 14.sp,
+                                          ),
+                                        ),
+                                        backgroundColor: Colors.red,
+                                      ),
+                                    )
+                                  : _signUpAndNavigate();
+                        },
                       ),
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: 20.h,
                     ),
                     GestureDetector(
                       onTap: () async {
-                              setState(() {
-                                isLoading = true;
-                              });
+                        setState(() {
+                          isLoading = true;
+                        });
 
-                              try {
-                                // Simulate an API call or registration process.
-                                await Future.delayed(Duration(seconds: 4));
+                        try {
+                          // Simulate an API call or registration process.
+                          await Future.delayed(Duration(seconds: 1));
 
-                                // After a 4-second delay, navigate to the Sign In screen.
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SignIn(
-                                            name: nameController.text,
-                                          )),
-                                );
+                          // After a 4-second delay, navigate to the Sign In screen.
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignIn(
+                                      name: nameController.text,
+                                      confirmPassword:
+                                          confirmPasswordController.text,
+                                      createEmail: emailController.text,
+                                    )),
+                          );
 
-                                setState(() {
-                                  isLoading = false;
-                                });
-                              } catch (e) {
-                                print(e);
-                              }
-                            },
+                          setState(() {
+                            isLoading = false;
+                          });
+                        } catch (e) {
+                          print(e);
+                        }
+                        await player.stop();
+                      },
                       child: Padding(
                         padding: EdgeInsets.only(right: 90.0).r,
                         child: Row(
@@ -189,7 +261,7 @@ class _SignUpState extends State<SignUp> {
                             Text(
                               'Already have an account? Sign in',
                               style: TextStyle(
-                                color: Color(0xFFFDF3E5),
+                                color:  Color(0xFFEED9BF),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: 'Onest',
                               ),
@@ -197,7 +269,7 @@ class _SignUpState extends State<SignUp> {
                             Icon(
                               Icons.chevron_right_rounded,
                               size: 30.r,
-                              color: Color(0xFFFDF3E5),
+                              color: Color(0xFFEED9BF),
                             ),
                           ],
                         ),

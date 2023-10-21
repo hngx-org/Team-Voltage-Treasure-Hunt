@@ -147,7 +147,7 @@ class _MapScreenState extends State<MapScreen> {
         circles: circles,
       ),
   floatingActionButton: Container(
-  margin: EdgeInsets.only(bottom: 0.0, right: 35.0),
+  margin: EdgeInsets.only(bottom: 40.0, right: 35.0),
   child: FloatingActionButton(
     mini: true,
     onPressed: goToCurrentLocation,
