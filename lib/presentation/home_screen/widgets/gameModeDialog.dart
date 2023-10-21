@@ -17,7 +17,7 @@ class GameModeDialog extends StatelessWidget {
         width: 150.h,
         decoration: BoxDecoration(
             color: Color(0xff001532),
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(22).r,
             border: Border.all(color: Color.fromARGB(255, 74, 172, 133))),
         child: Column(
           children: [
@@ -35,7 +35,7 @@ class GameModeDialog extends StatelessWidget {
               },
               child: Container(
                 height: 70.h,
-                width: 300.h,
+                width: 200.h,
                 decoration: BoxDecoration(
                     color: Color(0xff001532),
                     borderRadius: BorderRadius.circular(22),
@@ -47,7 +47,7 @@ class GameModeDialog extends StatelessWidget {
                           color: Color(0xFF73E2B5),
                           fontFamily: 'Onest',
                           fontWeight: FontWeight.w900,
-                          fontSize: 25.sp)),
+                          fontSize: 22.sp)),
                 ),
               ),
             ),
@@ -65,7 +65,7 @@ class GameModeDialog extends StatelessWidget {
               },
               child: Container(
                 height: 70.h,
-                width: 300.h,
+                width: 200.h,
                 decoration: BoxDecoration(
                     color: Color(0xff001532),
                     borderRadius: BorderRadius.circular(22),
@@ -77,7 +77,7 @@ class GameModeDialog extends StatelessWidget {
                           color: Color(0xFF73E2B5),
                           fontFamily: 'Onest',
                           fontWeight: FontWeight.w900,
-                          fontSize: 25.sp)),
+                          fontSize: 22.sp)),
                 ),
               ),
             )

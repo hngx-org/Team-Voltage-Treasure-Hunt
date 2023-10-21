@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -10,9 +11,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool isTapped = false;
-
-  @override                       
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff82591B),
@@ -24,7 +23,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage( 
+                  image: AssetImage(
                     'assets/images/IMG_4871.JPG',
                   ),
                 ),
@@ -46,23 +45,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     height: 250.h,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isTapped = !isTapped;
-                      });
-                    },
-                    child: isTapped
-                        ? Icon(
-                            Icons.music_off,
-                            color: Color(0xFF73E2B5),
-                            size: 100.r,
-                          )
-                        : Icon(
-                            Icons.music_note,
-                            color: Color(0xFF73E2B5),
-                            size: 100.r,
-                          ),
-                  ),
+  onTap: () {
+    Provider.of<MusicToggle>(context, listen: false).onToggled();
+
+  },
+  child: Consumer<MusicToggle>(
+    builder: (context, musicToggle, child) {
+      return musicToggle.isToggled
+          ? Icon(
+                Icons.music_note, 
+              color: Color(0xFF73E2B5),
+              size: 100.r,
+            )
+          : Icon(
+           Icons.music_off,
+              color: Color(0xFF73E2B5),
+              size: 100.r,
+            );
+    },
+  ),
+),
                 ],
               )),
           Positioned(
@@ -86,5 +88,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ],
       ),
     );
+  }
+}
+
+class MusicToggle extends ChangeNotifier {
+  bool isToggled = true;
+  void onToggled() {
+    isToggled = !isToggled;
+    notifyListeners();
   }
 }
