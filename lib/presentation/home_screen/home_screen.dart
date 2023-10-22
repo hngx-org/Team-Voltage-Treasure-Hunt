@@ -10,7 +10,12 @@ class HomePage extends StatefulWidget {
   final String name;
   final String email;
 
-  const HomePage({Key? key, required this.name, required this.email})
+  final String firstName;
+  const HomePage(
+      {Key? key,
+      required this.name,
+      required this.email,
+      required this.firstName})
       : super(key: key);
 
   @override
@@ -29,6 +34,7 @@ class _HomePageState extends State<HomePage> {
       Dashboard(
         name: widget.name,
         email: widget.email,
+        firstName: widget.firstName,
       ),
       MapScreen(),
       SettingsScreen(),
@@ -58,10 +64,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _loadAndPlayAudio() async {
-    await player.setAsset('assets/audio/homepage.mp3');
-    player.setVolume(0.25);
-    await player.play();
-  }
+  await player.setAsset('assets/audio/homepage.mp3');
+  player.setVolume(0.25);
+  player.play();
+
+  player.playerStateStream.listen((playerState) {
+    if (playerState.processingState == ProcessingState.completed) {
+      // Audio has finished playing, so we play it again.
+      player.seek(Duration.zero);
+      player.play();
+    }
+  });
+}
 
   void _stopAudio() {
     player.stop();

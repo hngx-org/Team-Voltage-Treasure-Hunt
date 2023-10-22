@@ -20,7 +20,7 @@ class AppColor {
       const Color(0xff3BA58B); //For Appbar, Buttons and Text Selections.
 
   static Color secondaryColor =
-      const Color(0XFFF0DCB6); // For BorderSide and Related Components.
+      const Color(0xff5FCFA3);// For BorderSide and Related Components.
   static Color previewTextColor = Color(0xFF987052);
   static Color textColor = const Color(0XFF643C20);
 }

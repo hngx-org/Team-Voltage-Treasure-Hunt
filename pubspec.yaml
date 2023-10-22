@@ -11,8 +11,10 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   device_preview: ^1.1.0
+  eva_icons_flutter: ^3.1.0
   firebase_auth: ^4.11.1
   firebase_core: ^2.19.0
+
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.1.0
@@ -40,7 +42,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
-    - assets/gif/
     - assets/keys.env
     - assets/animations/
     - assets/images/

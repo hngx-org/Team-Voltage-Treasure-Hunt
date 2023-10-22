@@ -83,7 +83,7 @@ class _SignInState extends State<SignIn> with WidgetsBindingObserver {
       MaterialPageRoute(
         builder: (context) => HomePage(
           email: emailController.text,
-          name: widget.name,
+          name: widget.name, firstName: '',
         ),
       ),
     );
