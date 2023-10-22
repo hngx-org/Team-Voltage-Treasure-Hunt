@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "455743320821",
+    "project_id": "voltage-treasure-hunt",
+    "storage_bucket": "voltage-treasure-hunt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455743320821:android:5ca5221238a6bd743b8bbc",
+        "android_client_info": {
+          "package_name": "com.example.voltage_treasure_hunt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFOgQNx8BPHcOW4Vv4u_Aw68FTJIbnzdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

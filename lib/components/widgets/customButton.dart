@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voltage_treasure_hunt/components/widgets/text_styles.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class CustomButton extends StatelessWidget {
   final Function()? onPressed;
@@ -34,12 +36,12 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: !loading ? onPressed : null,
         style: ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll(Color(0xff82591B)),
+          backgroundColor: MaterialStatePropertyAll(Color(0xff001532),),
           padding: MaterialStatePropertyAll(
             padding ?? const EdgeInsets.all(16),
           ),
           side: MaterialStateProperty.all<BorderSide>(
-            BorderSide(color: Color(0xffDCC18C), width: 2),
+            BorderSide(color:Color(0xff5FCFA3), width: 2),
           ),
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
@@ -48,16 +50,23 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: !loading
-            ? Text(
-                textAlign: TextAlign.center,
-                buttonText ?? "",
-                style: CustomTextStyles.buttonTextStyle)
+            ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+               Image.asset('assets/icons/google.png', height: 30.h, width: 30.w,),
+               SizedBox(width: 5.w,),
+                Text(
+                    textAlign: TextAlign.center,
+                    buttonText ?? "",
+                    style: CustomTextStyles.buttonTextStyle),
+              ],
+            )
             : SizedBox(
                 height: 20.h,
                 width: 20.w,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation(
-                    Color(0xffDCC18C),
+                    Color(0xff5FCFA3),
                   ),
                 ),
               ),

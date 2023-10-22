@@ -4,9 +4,17 @@ import 'package:provider/provider.dart';
 import 'package:voltage_treasure_hunt/components/themes/app_themes.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:voltage_treasure_hunt/presentation/app_settings/settings_screen.dart';
+import 'package:voltage_treasure_hunt/presentation/authentication_screens/sign_in.dart';
+import 'package:voltage_treasure_hunt/presentation/onboarding_screens/intro.dart';
 import 'package:voltage_treasure_hunt/presentation/onboarding_screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+GoogleSignIn _googleSignIn = GoogleSignIn(scopes: <String>[
+  'email',
+  'https://www.googleapis.com/auth/contacts.readonly',
+]);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,9 +46,24 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: appTheme,
-          home: const SplashScreen(),
+          home: SplashScreen(),
         );
       },
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,7 +11,8 @@ import 'package:voltage_treasure_hunt/presentation/home_screen/widgets/screenTog
 class Dashboard extends StatefulWidget {
   final String name;
   final String email;
-  const Dashboard({Key? key, required this.name, required this.email})
+  final String firstName;
+  const Dashboard({Key? key, required this.name, required this.email, required this.firstName})
       : super(key: key);
 
   @override
@@ -24,7 +25,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff82591B),
+      backgroundColor: Color(0xff001532),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -42,7 +43,7 @@ class _DashboardState extends State<Dashboard> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 55.h,
+                height: 40.h,
               ),
               SingleChildScrollView(
                 child: Container(
@@ -51,105 +52,108 @@ class _DashboardState extends State<Dashboard> {
                       borderRadius: BorderRadius.all(Radius.circular(22.r))),
                   height: 200.h,
                   width: 405.w,
-                  child: Row(
-                    
-                    children: [
+                  
+                  child: SingleChildScrollView(
+                    child: Row(
                       
-                      CircleAvatar(
-                        backgroundColor:  Color(0xff001532),
-                        radius: 90.r,
-                        child: SizedBox(
-                          height: 170.h,
-                          width: double.infinity,
-                          child: Lottie.asset(
-                            'assets/animations/animation_lny12g3w.json',
-                          ),
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          SizedBox(
-                            height: 40.h,
-                          ),
-                          SizedBox(
-                            width: 160.w,
-                            child: Center(
-                              child: Text(
-                                widget.name.isEmpty ? 'PLAYER' : widget.name,
-                                style: TextStyle(
-                                    color: Color(0xff5FCFA3),
-                                    fontFamily: 'Onest',
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 20.sp),
-                              ),
+                      children: [
+                        
+                        CircleAvatar(
+                          backgroundColor:  Color(0xff001532),
+                          radius: 90.r,
+                          child: SizedBox(
+                            height: 170.h,
+                            width: double.infinity,
+                            child: Lottie.asset(
+                              'assets/animations/animation_lny12g3w.json',
                             ),
                           ),
-                          SizedBox(
-                              width: 220.w,
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: 40.h,
+                            ),
+                            SizedBox(
+                              width: 160.w,
                               child: Center(
                                 child: Text(
-                                  widget.email.isEmpty
-                                      ? 'player2023@gmail.com'
-                                      : widget.email,
+                                  widget.name.isEmpty ? 'PLAYER' : widget.name.toUpperCase(),
                                   style: TextStyle(
                                       color: Color(0xff5FCFA3),
                                       fontFamily: 'Onest',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12.sp),
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 14.sp),
                                 ),
-                              )),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              SizedBox(
-                                  width: 140.w,
-                                  child: Text('Points:',
-                                      style: TextStyle(
-                                          color: Color(0xff5FCFA3),
-                                          fontFamily: 'Onest',
-                                          fontSize: 14.sp))),
-                              Text('30',
-                                  style: TextStyle(
-                                      color: Color(0xff5FCFA3),
-                                      fontFamily: 'Onest',
-                                      fontSize: 14.sp))
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              SizedBox(
-                                  width: 155.w,
-                                  child: Text('Level:',
-                                      style: TextStyle(
-                                          color: Color(0xff5FCFA3),
-                                          fontFamily: 'Onest',
-                                          fontSize: 14.sp))),
-                              Text('1',
-                                  style: TextStyle(
-                                      color: Color(0xff5FCFA3),
-                                      fontFamily: 'Onest',
-                                      fontSize: 14.sp))
-                            ],
-                          ),
-                          SizedBox(height: 15.h),
-                          Container(
-                            height: 5.h,
-                            width: 165.w,
-                            color: Color(0xff5FCFA3),
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                        ],
-                      ),
-                    ],
+                              ),
+                            ),
+                            SizedBox(
+                                width: 220.w,
+                                child: Center(
+                                  child: Text(
+                                    widget.email.isEmpty
+                                        ? 'player2023@gmail.com'
+                                        : widget.email,
+                                    style: TextStyle(
+                                        color: Color(0xff5FCFA3),
+                                        fontFamily: 'Onest',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12.sp),
+                                  ),
+                                )),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SizedBox(
+                                    width: 170.w,
+                                    child: Text('Points:',
+                                        style: TextStyle(
+                                            color: Color(0xff5FCFA3),
+                                            fontFamily: 'Onest',
+                                            fontSize: 14.sp))),
+                                Text('30',
+                                    style: TextStyle(
+                                        color: Color(0xff5FCFA3),
+                                        fontFamily: 'Onest',
+                                        fontSize: 14.sp))
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SizedBox(
+                                    width: 182.w,
+                                    child: Text('Level:',
+                                        style: TextStyle(
+                                            color: Color(0xff5FCFA3),
+                                            fontFamily: 'Onest',
+                                            fontSize: 14.sp))),
+                                Text('1',
+                                    style: TextStyle(
+                                        color: Color(0xff5FCFA3),
+                                        fontFamily: 'Onest',
+                                        fontSize: 14.sp))
+                              ],
+                            ),
+                            SizedBox(height: 15.h),
+                            Container(
+                              height: 5.h,
+                              width: 190.w,
+                              color: Color(0xff5FCFA3),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -186,7 +190,7 @@ class _DashboardState extends State<Dashboard> {
                     !isTapped
                         ? LeaderBoard(
                             userName:
-                                widget.name.isEmpty ? 'PLAYER 1' : widget.name,
+                                widget.name.isEmpty ? 'PLAYER 1' : widget.firstName,
                           )
                         : Achievements()
                   ],

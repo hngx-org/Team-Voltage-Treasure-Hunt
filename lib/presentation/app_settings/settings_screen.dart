@@ -44,7 +44,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   SizedBox(
                     height: 250.h,
                   ),
-                  GestureDetector(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
   onTap: () {
     Provider.of<MusicToggle>(context, listen: false).onToggled();
 
@@ -64,7 +67,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
             );
     },
   ),
-),
+  
+),GestureDetector(
+  onTap: (){
+    Navigator.pop(context);
+  },
+  child:   Icon(
+             Icons.exit_to_app,
+                color: Color(0xFF73E2B5),
+                size: 100.r,
+              ),
+)
+                    ],
+                  ),
                 ],
               )),
           Positioned(
